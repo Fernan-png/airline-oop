@@ -2,13 +2,13 @@ package org.ies.airline.model;
 
 import java.util.Objects;
 
-public class Pasanger {
+public class Passenger {
     private String nif;
     private String name;
     private String surname;
     private Integer seatNumber;
 
-    public Pasanger(String nif, String name, String surname, Integer seatNumber) {
+    public Passenger(String nif, String name, String surname, Integer seatNumber) {
         this.nif = nif;
         this.name = name;
         this.surname = surname;
@@ -51,8 +51,8 @@ public class Pasanger {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Pasanger pasanger = (Pasanger) o;
-        return Objects.equals(nif, pasanger.nif) && Objects.equals(name, pasanger.name) && Objects.equals(surname, pasanger.surname) && Objects.equals(seatNumber, pasanger.seatNumber);
+        Passenger passenger = (Passenger) o;
+        return Objects.equals(nif, passenger.nif) && Objects.equals(name, passenger.name) && Objects.equals(surname, passenger.surname) && Objects.equals(seatNumber, passenger.seatNumber);
     }
 
     @Override
@@ -62,7 +62,7 @@ public class Pasanger {
 
     @Override
     public String toString() {
-        return "Pasanger{" +
+        return "Passenger{" +
                 "nif='" + nif + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

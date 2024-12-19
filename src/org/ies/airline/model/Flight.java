@@ -8,9 +8,9 @@ public class Flight {
     private String origin;
     private String destination;
     private int gateNumber;
-    private Pasanger[] pasengers;
+    private Passenger[] pasengers;
 
-    public Flight(int flightNumber, String origin, String destination, int gateNumber, Pasanger[] pasengers) {
+    public Flight(int flightNumber, String origin, String destination, int gateNumber, Passenger[] pasengers) {
         this.flightNumber = flightNumber;
         this.origin = origin;
         this.destination = destination;
@@ -50,11 +50,11 @@ public class Flight {
         this.gateNumber = gateNumber;
     }
 
-    public Pasanger[] getPasengers() {
+    public Passenger[] getPasengers() {
         return pasengers;
     }
 
-    public void setPasengers(Pasanger[] pasengers) {
+    public void setPasengers(Passenger[] pasengers) {
         this.pasengers = pasengers;
     }
 
