@@ -42,7 +42,7 @@ public class Airline {
                 flight.showInfo();
             }
         }
-    }ºº
+    }
 
     public Integer getPassengerSeat(int fligthnumber, String nif) {
         var flight = findFlight(fligthnumber);
