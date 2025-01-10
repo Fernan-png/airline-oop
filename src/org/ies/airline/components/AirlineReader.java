@@ -6,6 +6,7 @@ import org.ies.airline.model.Flight;
 import java.util.Scanner;
 
 public class AirlineReader {
+
     private final Scanner scanner;
     private final FlightReader flightReader;
 
@@ -14,10 +15,8 @@ public class AirlineReader {
         this.flightReader = flightReader;
     }
 
-    public Airline read() {
-        System.out.println("** DATOS DE LA AEROLINEA **");
-
-        System.out.print("Nombre: ");
+    public Airline read(){
+        System.out.println("Nombre de la aerolínea");
         String name = scanner.nextLine();
 
         System.out.println("¿Cuantos vuelos hay?");
@@ -25,7 +24,7 @@ public class AirlineReader {
         scanner.nextLine();
 
         Flight[] flights = new Flight[size];
-        for (int i = 0; i < size ; i++) {
+        for (int i = 0; i < size; i++) {
             flights[i] = flightReader.read();
         }
 

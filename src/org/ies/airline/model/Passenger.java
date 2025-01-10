@@ -15,6 +15,10 @@ public class Passenger {
         this.seatNumber = seatNumber;
     }
 
+    public void showInfo() {
+        System.out.println(surname + ", " + name + " (" + nif + "). Asiento: " + seatNumber);
+    }
+
     public String getNif() {
         return nif;
     }
@@ -49,7 +53,6 @@ public class Passenger {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Passenger passenger = (Passenger) o;
         return Objects.equals(nif, passenger.nif) && Objects.equals(name, passenger.name) && Objects.equals(surname, passenger.surname) && Objects.equals(seatNumber, passenger.seatNumber);

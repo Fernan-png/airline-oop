@@ -12,6 +12,49 @@ public class Airline {
         this.flights = flights;
     }
 
+    public void showInfo() {
+        System.out.println("Aerolinea " + name);
+        for (var flight : flights) {
+            flight.showInfo();
+        }
+    }
+
+    public void showFlightsFromOrigin(String origin) {
+        for (var flight : flights) {
+            if (flight.getOrigin().equals(origin)) {
+                flight.showInfo();
+            }
+        }
+    }
+
+    public Flight findFlight(int flightNumber) {
+        for (var flight : flights) {
+            if (flight.getFlightNumber() == flightNumber) {
+                return flight;
+            }
+        }
+        return null;
+    }
+
+    public void showPassengerFlights(String nif) {
+        for (var flight : flights) {
+            if (flight.hasPassenger(nif)) {
+                flight.showInfo();
+            }
+        }
+    }ºº
+
+    public Integer getPassengerSeat(int fligthnumber, String nif) {
+        var flight = findFlight(fligthnumber);
+        if (flight != null) {
+            var passenger = flight.findPassenger(nif);
+            if (passenger != null) {
+                return passenger.getSeatNumber();
+            }
+        }
+        return null;
+    }
+
     public String getName() {
         return name;
     }
@@ -30,7 +73,6 @@ public class Airline {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Airline airline = (Airline) o;
         return Objects.equals(name, airline.name) && Objects.deepEquals(flights, airline.flights);

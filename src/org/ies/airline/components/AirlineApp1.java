@@ -25,9 +25,6 @@ public class AirlineApp1 {
         int flightNumber = scanner.nextInt();
         scanner.nextLine();
         Flight flight = flightReader.read();
-
-        flightReader.read().getFlightNumber();
-
-
+        flight.getFlightNumber();
     }
 }

@@ -8,14 +8,40 @@ public class Flight {
     private String origin;
     private String destination;
     private int gateNumber;
-    private Passenger[] pasengers;
+    private Passenger[] passengers;
 
-    public Flight(int flightNumber, String origin, String destination, int gateNumber, Passenger[] pasengers) {
+    public Flight(int flightNumber, String origin, String destination, int gateNumber, Passenger[] passengers) {
         this.flightNumber = flightNumber;
         this.origin = origin;
         this.destination = destination;
         this.gateNumber = gateNumber;
-        this.pasengers = pasengers;
+        this.passengers = passengers;
+    }
+
+    public Passenger findPassenger(String nif) {
+        for (var passenger: passengers) {
+            if(passenger.getNif().equals(nif)) {
+                return passenger;
+            }
+        }
+        return null;
+    }
+
+    public boolean hasPassenger(String nif) {
+        for (var passenger : passengers) {
+            if (passenger.getNif().equals(nif)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void showInfo() {
+        System.out.println("Vuelo " + flightNumber + ": " + origin + " - " + destination + ". Puerta: " + gateNumber);
+        System.out.println("Pasajeros: ");
+        for (var passenger : passengers) {
+            passenger.showInfo();
+        }
     }
 
     public int getFlightNumber() {
@@ -50,25 +76,24 @@ public class Flight {
         this.gateNumber = gateNumber;
     }
 
-    public Passenger[] getPasengers() {
-        return pasengers;
+    public Passenger[] getPassengers() {
+        return passengers;
     }
 
-    public void setPasengers(Passenger[] pasengers) {
-        this.pasengers = pasengers;
+    public void setPassengers(Passenger[] passengers) {
+        this.passengers = passengers;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return flightNumber == flight.flightNumber && gateNumber == flight.gateNumber && Objects.equals(origin, flight.origin) && Objects.equals(destination, flight.destination) && Objects.deepEquals(pasengers, flight.pasengers);
+        return flightNumber == flight.flightNumber && gateNumber == flight.gateNumber && Objects.equals(origin, flight.origin) && Objects.equals(destination, flight.destination) && Objects.deepEquals(passengers, flight.passengers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightNumber, origin, destination, gateNumber, Arrays.hashCode(pasengers));
+        return Objects.hash(flightNumber, origin, destination, gateNumber, Arrays.hashCode(passengers));
     }
 
     @Override
@@ -78,7 +103,7 @@ public class Flight {
                 ", origin='" + origin + '\'' +
                 ", destination='" + destination + '\'' +
                 ", gateNumber=" + gateNumber +
-                ", pasengers=" + Arrays.toString(pasengers) +
+                ", passengers=" + Arrays.toString(passengers) +
                 '}';
     }
 }

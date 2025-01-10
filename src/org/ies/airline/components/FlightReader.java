@@ -6,8 +6,11 @@ import org.ies.airline.model.Passenger;
 import java.util.Scanner;
 
 public class FlightReader {
+
+
     private final Scanner scanner;
     private final PassengerReader passengerReader;
+
 
     public FlightReader(Scanner scanner, PassengerReader passengerReader) {
         this.scanner = scanner;
@@ -15,18 +18,18 @@ public class FlightReader {
     }
 
     public Flight read() {
-        System.out.println("** DATOS DEL PASAJERO **");
-        System.out.print("Número de vuelo: ");
+        System.out.println("--Datos del pasajero--");
+        System.out.println("Número de vuelo:");
         int flightNumber = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.print("Lugar de origen: ");
+        System.out.println("Origen:");
         String origin = scanner.nextLine();
 
-        System.out.print("Lugar de destino: ");
+        System.out.println("Destino:");
         String destination = scanner.nextLine();
 
-        System.out.print("Puerta de embarque: ");
+        System.out.println("Puerta de embarque:");
         int gateNumber = scanner.nextInt();
         scanner.nextLine();
 
@@ -35,10 +38,9 @@ public class FlightReader {
         scanner.nextLine();
 
         Passenger[] passengers = new Passenger[size];
-        for (int i = 0; i < size ; i++) {
+        for (int i = 0; i < size; i++) {
             passengers[i] = passengerReader.read();
         }
-
         return new Flight(
                 flightNumber,
                 origin,

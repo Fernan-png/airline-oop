@@ -5,25 +5,27 @@ import org.ies.airline.model.Passenger;
 import java.util.Scanner;
 
 public class PassengerReader {
+
     private final Scanner scanner;
 
     public PassengerReader(Scanner scanner) {
         this.scanner = scanner;
     }
 
-    public Passenger read() {
-        System.out.println("** DATOS DEL VUELO **");
+    public Passenger read(){
 
-        System.out.print("NIF: ");
+        System.out.println("--Datos del vuelo--");
+
+        System.out.println("NIF:");
         String nif = scanner.nextLine();
 
-        System.out.print("Nombre: ");
+        System.out.println("Nombre:");
         String name = scanner.nextLine();
 
-        System.out.print("Apellidos: ");
+        System.out.println("Apellido:");
         String surname = scanner.nextLine();
 
-        System.out.print("Número de asiento: ");
+        System.out.println("Número de asiento");
         Integer seatNumber = scanner.nextInt();
         scanner.nextLine();
 
